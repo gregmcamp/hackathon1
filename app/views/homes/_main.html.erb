@@ -1,29 +1,31 @@
-<% if @users.any?  %>
-  <% @users.each do |user| %>
-    <% if user.profile && user.profile.bio %>
-      <div class="row container">
-        <div class="card  red darken-4 med col s12 m12 l9 right white-text">
-          <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="<%= image_path("default_bg.png") %>">
-          </div>
-          <div class="card-content red darken-4">
-            <span class="card-title"><%= link_to user.first_name%><i class="material-icons activator right">more_vert</i></span>
-          </div>
-          <div class="card-reveal grey darken-2">
-            <span class="card-title "><%=user.first_name %><i class="material-icons right">close</i></span>
-            <p><%= user.profile.bio %></p>
-            <% if user.languages %>
-              <% user.languages.each do |lang| %>
-                <%= lang.name %>
+<div class="col s12 m12 l9">
+  <% if @users.any?  %>
+    <% @users.each do |user| %>
+      <% if user.profile && user.profile.bio %>
+        <div class="row">
+          <div class="card red darken-4 col s12 l8 offset-2 white-text">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="<%= image_path("default_bg.png") %>">
+            </div>
+            <div class="card-content red darken-4">
+              <span class="card-title"><%= link_to user.first_name%><i class="material-icons activator right">more_vert</i></span>
+            </div>
+            <div class="card-reveal grey darken-2">
+              <span class="card-title "><%=user.first_name %><i class="material-icons right">close</i></span>
+              <p><%= "hello" %></p>
+              <% if user.languages %>
+                <% user.languages.each do |lang| %>
+                  <%= lang.name %>
+                <% end %>
               <% end %>
-            <% end %>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
+  <% else %>
+    <div class="center white-text">
+      <h1>Currently No Users</h1>
+    </div>
   <% end %>
-<% else %>
-  <div class="center white-text">
-    <h1>Currently No Users</h1>
-  </div>
-<% end %>
+</div>
