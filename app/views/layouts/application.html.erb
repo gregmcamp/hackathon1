@@ -11,10 +11,10 @@
 </head>
 <body>
   <nav>
-    <div class="nav-wrapper red darken-4">
-      <a href="/" class="brand-logo hide-on-med-and-down">aHref</a>
-      <a href="/" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
+    <div class="nav-wrapper red darken-4 " >
+      <a href="/" class="brand-logo hide-on-med-and-down" style="margin-top: .5em;">aHref</a>
+      <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="left hide-on-med-and-down right" style="margin-top: 2em;">
         <% if user_signed_in? && current_user.profile %>
           <li><%= link_to current_user.first_name, user_profile_path(current_user, current_user.profile) %></li>
           <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
@@ -26,8 +26,8 @@
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
         <% end %>
       </ul>
-      <ul class="left hide-on-med-and-up">
-        <a href="/" class="brand-logo right hide-on-med-and-up">aHref</a>
+      <ul class="left hide-on-med-and-up" style="margin-top: 1em;">
+        <a href="/" class="brand-logo right hide-on-med-and-up" >aHref</a>
         <% if user_signed_in? && current_user.profile %>
           <li><%= link_to current_user.first_name, user_profile_path(current_user, current_user.profile) %></li>
           <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
