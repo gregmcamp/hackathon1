@@ -6,4 +6,11 @@ class User < ActiveRecord::Base
 
   has_one :profile
   has_many :languages
+
+  after_create :create_profile
+
+  private 
+    def create_profile
+      self.profile = Profile.create
+    end
 end

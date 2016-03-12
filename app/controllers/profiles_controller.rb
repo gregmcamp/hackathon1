@@ -4,15 +4,30 @@ class ProfilesController < ApplicationController
   def show
   end
 
+  def new
+    @profile = current_user.profile.new
+  end 
+
+  def create
+    @profile = current_user.profile.new(profile_params)
+    if @profile.save
+      flash[:notice] = "Profile created successfully."
+      redirect_to user_profile_path(current_user, @profile)
+    else 
+      flash[:alert] = "Profile failed to save."
+      render :new
+    end
+  end
+
   def edit
   end
 
   def update
     if @profile.update(profile_params)
-      flash[:notice] = 'Profile updated successfully!'
+      flash[:notice] = 'Profile updated successfully'
       redirect_to user_profile_path(current_user, @profile)
     else
-      flash[:alert] = 'Profile not updated!'
+      flash[:alert] = 'Profile failed to update.'
       render :edit
     end
   end
