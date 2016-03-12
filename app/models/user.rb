@@ -9,9 +9,8 @@ class User < ActiveRecord::Base
 
   after_create :create_profile
 
-  private 
+  private
     def create_profile
-      binding.pry
       self.profile = Profile.create
     end
 end
