@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   private 
     def create_profile
+      binding.pry
       self.profile = Profile.create
     end
 end
