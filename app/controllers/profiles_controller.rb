@@ -1,5 +1,7 @@
 class ProfilesController < ApplicationController
-  before_action :profile
+  before_action :user
+  before_action :profile, only: [:edit, :show]
+
 
   def show
   end
@@ -23,6 +25,7 @@ class ProfilesController < ApplicationController
   end
 
   def update
+    @profile = Profile.find(params[:id])
     if @profile.update(profile_params)
       flash[:notice] = 'Profile updated successfully'
       redirect_to user_profile_path(current_user, @profile)
@@ -34,10 +37,14 @@ class ProfilesController < ApplicationController
 
   private
     def profile_params
-      params.require(:profile).permit(:bio, :about_me, :profile_pic, :bg_pic, :gender, :age)
+      params.require(:profile).permit(:bio, :about_me, :prof_pic, :bg_pic, :gender, :age)
     end
 
     def profile
       @profile = current_user.profile
+    end
+
+    def user
+      @user = current_user
     end
 end

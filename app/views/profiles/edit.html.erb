@@ -1,3 +1,36 @@
-<h1>Editing your profile</h1>
+<div class='container'>
+  <h1>Editing your profile</h1>
 
-<% render :form %>
+  <%= form_for [@user, @profile], html: { multipart: true } do |f| %>
+    <%= f.text_field :bio, placeholder: 'Brief summary of who you are' %>
+    <div class='file-field input-field'>
+      <div class='btn'>
+        <span>Profile Picture</span>
+          <%= f.file_field :prof_pic %>
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
+
+    <div class='file-field input-field'>
+      <div class='btn'>
+        <span>Background Picture</span>
+          <%= f.file_field :bg_pic %>
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col s4 offset 8'>
+      <%= f.select :gender, ['--Select Gender--', 'Male', 'Female'], {}, placeholder: 'Gender', class: 'browser-default' %>
+      </div>
+    </div>
+    <%= f.number_field :age, min: 16, max: 99, placeholder: 'Age', required: true %>
+    <%= f.text_area :about_me, placeholder: 'Describe yourself in more depth' %>
+    <button class='btn waves-effect' type="submit" name="action">
+      Save Profile
+    </button>
+  <% end %>
+</div>

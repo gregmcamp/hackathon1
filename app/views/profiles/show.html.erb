@@ -1,1 +1,7 @@
 <h1>Profile for: <%= current_user.first_name %></h1>
+
+<%= image_tag(@user.profile.bg_pic(:medium)) %>
+<%= image_tag(@user.profile.prof_pic(:medium)) %>
+
+
+<%= button_to 'Edit Profile', edit_user_profile_path(current_user, @profile), method: :get, class: 'btn'  %>
