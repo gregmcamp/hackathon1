@@ -7,7 +7,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.text :about_me
       t.attachment :prof_pic
       t.attachment :bg_pic
-      belongs_to :user
+      t.belongs_to :user
 
       t.timestamps null: false
     end
