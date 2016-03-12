@@ -1,2 +1,10 @@
-<h1>Profiles#new</h1>
-<p>Find me in app/views/profiles/new.html.erb</p>
+<h1>Fill out your aHref profile!</h1>
+
+<% form_for do |f| %>
+  <%= f.bio, :placeholder 'Brief summary of who you are' %>
+  <%= f.about_me, :placeholder 'Describe yourself in more depth' %>
+  <%= f.prof_pic, :placeholder 'Picture of yourself' %>
+  <%= f.bg_pic, :placeholder 'Background picture' %>
+  <%= f.gender, :placeholder 'Gender' %>
+  <%= f.age, :age 'Age' %>
+<% end %>
