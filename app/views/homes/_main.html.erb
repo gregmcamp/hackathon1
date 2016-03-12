@@ -1,7 +1,7 @@
 <div class="col s12 m12 l8">
   <% if @users.any?  %>
     <% @users.each do |user| %>
-      <% #if user.profile && user.profile.bio %>
+      <% if user.profile && user.profile.bio %>
         <div class="row">
           <div class="card red darken-4 col s12 l8 offset-l2 med white-text">
             <div class="card-image waves-effect waves-block waves-light">
@@ -13,15 +13,15 @@
             <div class="card-reveal grey darken-2">
               <span class="card-title "><%=user.first_name %><i class="material-icons right">close</i></span>
               <p><%= "hello" %></p>
-              <!-- <% if user.languages %>
+              <% if user.languages %>
                 <% user.languages.each do |lang| %>
                   <%= lang.name %>
                 <% end %>
-              <% end %> -->
+              <% end %>
             </div>
           </div>
         </div>
-      <% #end %>
+      <% end %>
     <% end %>
   <% else %>
     <div class="center white-text">
