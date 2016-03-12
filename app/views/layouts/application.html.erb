@@ -5,49 +5,66 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
-  <nav>
-    <div class="nav-wrapper red darken-4 " >
-      <a href="/" class="brand-logo hide-on-med-and-down" style="margin-top: .5em;">aHref</a>
-      <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="left hide-on-med-and-down right" style="margin-top: 2em;">
-        <% if user_signed_in? && current_user.profile %>
-          <li><%= link_to current_user.first_name, user_profile_path(current_user, current_user.profile) %></li>
-          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
-        <% elsif user_signed_in? %>
-          <li><%= link_to current_user.first_name, new_user_profile_path(current_user) %></li>
-          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to 'Login', new_user_session_path %></li>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-        <% end %>
-      </ul>
-      <ul class="left hide-on-large-only" style="margin-top: 1em;">
-        <a href="/" class="brand-logo right hide-on-large-only" >aHref</a>
-        <% if user_signed_in? && current_user.profile %>
-          <li><%= link_to current_user.first_name, user_profile_path(current_user, current_user.profile) %></li>
-          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
-        <% elsif user_signed_in? %>
-          <li><%= link_to current_user.first_name, new_user_profile_path(current_user) %></li>
-          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to 'Login', new_user_session_path %></li>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-        <% end %>
-      </ul>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper red darken-4 " >
+        <a href="/" class="brand-logo" style="margin-top: .5em;">aHREF</a>
+        <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="left hide-on-med-and-down right" style="margin-top: 2em;">
+          <% if user_signed_in? && current_user.profile %>
+            <li>
+              <%= link_to current_user.first_name, user_profile_path(current_user, current_user.profile) %>
+            </li>
+            <li>
+              <%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %>
+            </li>
+          <% elsif user_signed_in? %>
+            <li>
+              <%= link_to current_user.first_name, new_user_profile_path(current_user) %>
+            </li>
+            <li>
+              <%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to 'LOGIN', new_user_session_path %>
+            </li>
+            <li>
+              <%= link_to 'SIGN UP', new_user_registration_path %>
+            </li>
+          <% end %>
+        </ul>
 
-    </div>
-  </nav>
+        <ul class="left hide-on-large-only side-nav" id="mobile-demo" style="margin-top: 1em;">
+          <% if user_signed_in? && current_user.profile %>
+            <li><%= link_to current_user.first_name, user_profile_path(current_user, current_user.profile) %></li>
+            <li><%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %></li>
+          <% elsif user_signed_in? %>
+            <li><%= link_to current_user.first_name, new_user_profile_path(current_user) %></li>
+            <li><%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to 'LOGIN', new_user_session_path %></li>
+            <li><%= link_to 'SIGN UP', new_user_registration_path %></li>
+          <% end %>
+            <div class="divider"></div>
+          <li class="black-text"><%= link_to 'RUBY' %></li>
+          <li class="black-text"><%= link_to 'JAVASCRIPT' %></li>
+          <li class="black-text"><%= link_to 'PYTHON' %></li>
+          <li class="black-text"><%= link_to 'C++' %></li>
+          <li class="black-text"><%= link_to 'C#' %></li>
+          <li class="black-text"><%= link_to 'SQL' %></li>
+          <li class="black-text"><%= link_to 'PHP' %></li>
+        </ul>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
-
-
+      </div>
+    </nav>
+  </div>
+  <p class="notice white-text"><%= notice %></p>
+  <p class="alert white-text"><%= alert %></p>
 <%= yield %>
 
 </body>

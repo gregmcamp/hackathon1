@@ -4,10 +4,16 @@ body {
 
 a {
   color: white;
+  font-size: 50px;
 }
 
 a:hover {
   color: red;
+}
+
+.navbar-fixed a:hover {
+  color: black;
+  background-color: transparent;
 }
 
 h1, h2, h3, h4, p, a{
@@ -23,3 +29,18 @@ h2 {
 .field {
   font-size: 30%;
 }
+
+.languages {
+  margin-top: -5%;
+  margin-bottom: 0%;
+  white-space: pre;
+}
+
+.picture {
+  height: 40px;
+}
+
+.zero-margin{
+  margin-bottom: 0%;
+}
+
