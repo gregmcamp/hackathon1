@@ -8,7 +8,4 @@ Rails.application.routes.draw do
     resources :language
     resources :profile
   end
-
-  private
-  def s
 end
