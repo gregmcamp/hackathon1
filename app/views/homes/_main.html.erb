@@ -1,8 +1,8 @@
 <% if @users.any?  %>
   <% @users.each do |user| %>
-    <% #if user.profile.bio %>
+    <% if user.profile && user.profile.bio %>
       <div class="row container">
-        <div class="card  red darken-4 med col s12 m12 l10 right white-text">
+        <div class="card  red darken-4 med col s12 m12 l9 right white-text">
           <div class="card-image waves-effect waves-block waves-light">
             <img class="activator" src="<%= image_path("default_bg.png") %>">
           </div>
@@ -11,11 +11,16 @@
           </div>
           <div class="card-reveal grey darken-2">
             <span class="card-title "><%=user.first_name %><i class="material-icons right">close</i></span>
-            <p>User bio will go here along with the languages</p>
+            <p><%= user.profile.bio %></p>
+            <% if user.languages %>
+              <% user.languages.each do |lang| %>
+                <%= lang.name %>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>
-    <% #end %>
+    <% end %>
   <% end %>
 <% else %>
   <div class="center white-text">
