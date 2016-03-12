@@ -1,39 +1,36 @@
-<h2>Sign up</h2>
+<div class='container'>
+  <h2 class='white-text'>SIGN UP FOR aHREF</h2>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+    <div class="field white-text">
+      <%= f.text_field :first_name, placeholder: 'FIRST NAME', autofocus: true %>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+    <div class="field white-text">
+      <%= f.text_field :last_name, placeholder: 'LAST NAME' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, required: true %>
-  </div>
+    <div class="field white-text">
+      <%= f.email_field :email, placeholder: 'EMAIL' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, required: true %>
-  </div>
+    <div class="field white-text">
+      <% if @minimum_password_length %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+      <%= f.password_field :password, placeholder: 'PASSWORD', autocomplete: "off" %>
+      <% end %><br />
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+    <div class="field white-text">
+      <%= f.password_field :password_confirmation, placeholder: "PASSWORD CONFIRMATION", autocomplete: "off" %>
+    </div>
+    <div class="center-align">
+      <div class="actions">
+        <%= f.submit "SIGN UP", class: "waves-effect waves-light red darken-4 btn-large" %>
+      </div>
+    <% end %>
+    <br/>
+    <%= render "devise/shared/links" %>
+    </div>
+</div>
