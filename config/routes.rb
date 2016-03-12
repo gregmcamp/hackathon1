@@ -1,14 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {
-    registrations: 'users/registrations'
-  }
+  devise_for :users
   root "home#index"
 
   resources :user do
-    resources :language
-    resources :profile
+    resoureces :language
+    resoureces :profile
   end
-
-  private
-  def s
 end
