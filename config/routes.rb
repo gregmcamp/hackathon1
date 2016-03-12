@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root "homes#index"
 
   resources :user do
-    resources :languages
-    resources :profiles
+    resources :language
+    resources :profile
   end
 end
