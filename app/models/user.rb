@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   after_create :create_profile
 
-  private 
+  private
     def create_profile
       self.profile = Profile.create
     end
