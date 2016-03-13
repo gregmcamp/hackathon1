@@ -1,7 +1,34 @@
-<h1>Profile for: <%= current_user.first_name %></h1>
+  <div style="background: url(<%= @user.profile.bg_pic.url %>) no-repeat center center fixed; width: 100%; height: 800px; background-size: cover;"></div>
+  <br/>
+  <br/>
 
-<%= image_tag(@user.profile.bg_pic(:medium)) %>
-<%= image_tag(@user.profile.prof_pic(:medium)) %>
+  <div class="firstbackground">
+  <br/>
+  <br/>
+  <br/>
+    <%= image_tag(@user.profile.prof_pic(:medium)) %>
+    <br/>
+    <br/>
+    <div class="firstname">
+      <%= @user.first_name %> <%= @user.last_name %>
+      <p><%= @profile.about_me %>
+      <%= @user.email %>
+    </div>
+    <br/>
+  </div>
 
+<div class="secondbackground">
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  Age: <%= @profile.age %>
+  <br/>
+  Gender: <%= @profile.gender %>
+  <br/>
+  <%= @profile.bio %>
+</div>
 
 <%= button_to 'Edit Profile', edit_user_profile_path(current_user, @profile), method: :get, class: 'btn'  %>
